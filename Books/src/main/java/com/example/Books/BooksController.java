@@ -24,6 +24,7 @@ public class BooksController {
     private int serverPort;
 
     @RequestMapping(value="/database",method = RequestMethod.GET)
+    @GetMapping
     public Database retrieveLimits() {
         return new Database(configuration.getUrl());
     }
@@ -43,6 +44,12 @@ public class BooksController {
     public Optional<Book> getBookByID(@PathVariable int id)
     {
         return booksRepository.findById(id);
+    }
+
+    @RequestMapping(value = "/book/{name}",method = RequestMethod.GET)
+    public List<Book> getBookByName(@PathVariable String name)
+    {
+        return booksRepository.findByName(name);
     }
 
     @RequestMapping(value = "/books",method = RequestMethod.POST)

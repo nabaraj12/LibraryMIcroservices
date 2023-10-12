@@ -14,9 +14,8 @@
 	<name>User</name>
 	<description>UserRepo</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 		<repackage.classifier/>
-		<spring-native.version>0.12.1</spring-native.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -35,11 +34,6 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.experimental</groupId>
-			<artifactId>spring-native</artifactId>
-			<version>${spring-native.version}</version>
 		</dependency>
 
 		<dependency>
@@ -63,25 +57,6 @@
 						</env>
 					</image>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.springframework.experimental</groupId>
-				<artifactId>spring-aot-maven-plugin</artifactId>
-				<version>${spring-native.version}</version>
-				<executions>
-					<execution>
-						<id>test-generate</id>
-						<goals>
-							<goal>test-generate</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>generate</id>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.hibernate.orm.tooling</groupId>
